@@ -1,11 +1,10 @@
-
 import { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { 
   Leaf, 
   TreePine, 
   Recycle, 
-  Water, 
+  Droplets, 
   LucideLeafyGreen, 
   CheckCircle2, 
   Sun, 
@@ -82,14 +81,11 @@ const TakeAction = () => {
       return;
     }
     
-    // Here you would typically send the email to your server or newsletter service
     console.log('Submitting email:', email);
     
-    // Simulate success
     setIsSubmitted(true);
     setEmail('');
     
-    // Reset after 5 seconds
     setTimeout(() => {
       setIsSubmitted(false);
     }, 5000);
@@ -109,7 +105,7 @@ const TakeAction = () => {
     {
       title: "Save Water",
       description: "Install water-saving fixtures, fix leaks, and practice mindful consumption of this precious resource.",
-      icon: <Water size={32} />
+      icon: <Droplets size={32} />
     },
     {
       title: "Choose Sustainable Food",

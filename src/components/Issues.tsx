@@ -1,7 +1,6 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import { TreePine, Leaf, Cloud, Water, AlertTriangle, LightbulbIcon } from 'lucide-react';
+import { TreePine, Leaf, Cloud, Droplets, AlertTriangle, LightbulbIcon } from 'lucide-react';
 
 interface IssueCardProps {
   title: string;
@@ -93,7 +92,7 @@ const Issues = () => {
       title: "Water Pollution",
       description: "Chemicals, plastics, and waste are contaminating our oceans, rivers, and drinking water sources.",
       solution: "Minimize plastic use, properly dispose of hazardous waste, and support clean water initiatives.",
-      icon: <Water className="text-white" size={24} />,
+      icon: <Droplets className="text-white" size={24} />,
       color: "bg-earth-blue",
       gradientClass: "bg-gradient-ocean"
     },
