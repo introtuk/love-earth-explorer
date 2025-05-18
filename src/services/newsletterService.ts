@@ -1,5 +1,5 @@
 
-import { supabase } from '@/lib/supabase';
+import { supabase, isSupabaseConfigured } from '@/lib/supabase';
 
 export interface SubscriberData {
   email: string;
@@ -8,6 +8,15 @@ export interface SubscriberData {
 
 export async function subscribeToNewsletter(email: string): Promise<{ success: boolean; message: string }> {
   try {
+    // Check if Supabase is configured
+    if (!isSupabaseConfigured()) {
+      console.error('Supabase is not properly configured. Cannot subscribe to newsletter.');
+      return { 
+        success: false, 
+        message: 'Newsletter subscription is currently unavailable. Please try again later or contact support.' 
+      };
+    }
+
     // Check if email already exists
     const { data: existingSubscriber } = await supabase
       .from('subscribers')
