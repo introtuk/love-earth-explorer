@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -6,30 +5,31 @@ import Issues from '../components/Issues';
 import TreeCalculator from '../components/TreeCalculator';
 import TakeAction from '../components/TakeAction';
 import Footer from '../components/Footer';
+import JoinNews from '@/components/JoinNews';
 
 const Index = () => {
   useEffect(() => {
     // Set page title
-    document.title = "LOVE EARTH - Environmental Awareness";
-    
+    document.title = 'LOVE EARTH - Environmental Awareness';
+
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
+
         const targetId = this.getAttribute('href');
         if (!targetId) return;
-        
+
         const targetElement = document.querySelector(targetId);
         if (!targetElement) return;
-        
+
         window.scrollTo({
           top: targetElement.getBoundingClientRect().top + window.scrollY - 80, // Account for navbar
-          behavior: 'smooth'
+          behavior: 'smooth',
         });
       });
     });
-    
+
     return () => {
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.removeEventListener('click', () => {});
@@ -45,6 +45,7 @@ const Index = () => {
         <Issues />
         <TreeCalculator />
         <TakeAction />
+        <JoinNews />
       </main>
       <Footer />
     </div>
