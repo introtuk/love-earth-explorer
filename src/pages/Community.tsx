@@ -1,24 +1,67 @@
-
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Calendar, TreeDeciduous, Newspaper, Image, Clock } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Calendar, TreeDeciduous, Newspaper, Image, Clock } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Separator } from '@/components/ui/separator';
 
 const Community = () => {
   const [treeCount] = useState(10);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const isHomePage = location.pathname === '/' || location.pathname === '/home';
+
+  const handleHashLink = (e, hash) => {
+    e.preventDefault();
+
+    // Extract the ID from the hash
+    const id = hash.includes('/#') ? hash.split('/#')[1] : hash.substring(1);
+
+    // If we're already on home page, just scroll
+    if (isHomePage) {
+      const element = document.getElementById(id);
+
+      if (element) {
+        // Get navbar height to offset scroll position
+        const navbarHeight = document.querySelector('nav')?.offsetHeight || 0;
+
+        // Smooth scroll to the element
+        window.scrollTo({
+          top: element.offsetTop - navbarHeight,
+          behavior: 'smooth',
+        });
+      }
+    } else {
+      // If we're on another page, navigate to home with the hash
+      navigate(`/#${id}`);
+
+      // Set a flag in sessionStorage to indicate we need to scroll after navigation
+      sessionStorage.setItem('scrollToId', id);
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <div className="container mx-auto px-4 py-24 mt-16">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-earth-forest mb-4">Our Community</h1>
+          <h1 className="text-4xl font-bold text-earth-forest mb-4">
+            Our Community
+          </h1>
           <p className="text-xl text-earth-forest/80 max-w-2xl mx-auto">
-            Join our growing community of earth lovers who share stories, updates, and make a difference together.
+            Join our growing community of earth lovers who share stories,
+            updates, and make a difference together.
           </p>
         </div>
 
@@ -27,7 +70,9 @@ const Community = () => {
             <TreeDeciduous className="w-10 h-10 text-earth-green mr-4" />
             <div>
               <h2 className="text-2xl font-semibold">Trees Planted</h2>
-              <div className="text-4xl font-bold text-earth-green">{treeCount.toLocaleString()}</div>
+              <div className="text-4xl font-bold text-earth-green">
+                {treeCount.toLocaleString()}
+              </div>
             </div>
           </div>
         </div>
@@ -38,8 +83,9 @@ const Community = () => {
             Coming Soon!
           </AlertTitle>
           <AlertDescription className="text-lg">
-            We're working hard to build our community platform. Soon you'll be able to share your stories, 
-            upload photos, see upcoming events and connect with other earth lovers!
+            We're working hard to build our community platform. Soon you'll be
+            able to share your stories, upload photos, see upcoming events and
+            connect with other earth lovers!
           </AlertDescription>
         </Alert>
 
@@ -51,13 +97,19 @@ const Community = () => {
                   <Newspaper className="mr-2 h-5 w-5 text-earth-green" />
                   Stories & News
                 </CardTitle>
-                <Badge variant="outline" className="bg-earth-light-green/10">Coming Soon</Badge>
+                <Badge variant="outline" className="bg-earth-light-green/10">
+                  Coming Soon
+                </Badge>
               </div>
-              <CardDescription>Share and read inspiring environmental stories</CardDescription>
+              <CardDescription>
+                Share and read inspiring environmental stories
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="h-40 bg-earth-light-green/10 rounded-lg flex items-center justify-center">
-                <p className="text-earth-forest/70 text-lg">Story sharing will be available soon</p>
+                <p className="text-earth-forest/70 text-lg">
+                  Story sharing will be available soon
+                </p>
               </div>
             </CardContent>
             <CardFooter className="text-sm text-earth-forest/60">
@@ -72,13 +124,19 @@ const Community = () => {
                   <Image className="mr-2 h-5 w-5 text-earth-green" />
                   Photo Gallery
                 </CardTitle>
-                <Badge variant="outline" className="bg-earth-light-green/10">Coming Soon</Badge>
+                <Badge variant="outline" className="bg-earth-light-green/10">
+                  Coming Soon
+                </Badge>
               </div>
-              <CardDescription>Upload and view photos from community actions</CardDescription>
+              <CardDescription>
+                Upload and view photos from community actions
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="h-40 bg-earth-light-green/10 rounded-lg flex items-center justify-center">
-                <p className="text-earth-forest/70 text-lg">Photo uploads will be available soon</p>
+                <p className="text-earth-forest/70 text-lg">
+                  Photo uploads will be available soon
+                </p>
               </div>
             </CardContent>
             <CardFooter className="text-sm text-earth-forest/60">
@@ -93,31 +151,49 @@ const Community = () => {
                   <Calendar className="mr-2 h-5 w-5 text-earth-green" />
                   Upcoming Events
                 </CardTitle>
-                <Badge variant="outline" className="bg-earth-light-green/10">Coming Soon</Badge>
+                <Badge variant="outline" className="bg-earth-light-green/10">
+                  Coming Soon
+                </Badge>
               </div>
-              <CardDescription>Find and join local environmental events</CardDescription>
+              <CardDescription>
+                Find and join local environmental events
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="h-40 bg-earth-light-green/10 rounded-lg flex items-center justify-center">
-                <p className="text-earth-forest/70 text-lg">Event calendar will be available soon</p>
+                <p className="text-earth-forest/70 text-lg">
+                  Event calendar will be available soon
+                </p>
               </div>
             </CardContent>
             <CardFooter className="text-sm text-earth-forest/60">
-              Connect with other environmentally conscious individuals at local events
+              Connect with other environmentally conscious individuals at local
+              events
             </CardFooter>
           </Card>
         </div>
 
         <div className="text-center">
-          <h3 className="text-2xl font-semibold text-earth-forest mb-4">Want to be notified when our community features launch?</h3>
+          <h3 className="text-2xl font-semibold text-earth-forest mb-4">
+            Want to be notified when our community features launch?
+          </h3>
           <p className="mb-6">Subscribe to our newsletter to stay updated!</p>
-          <Link to="/#join" className="btn-earth">Join Our Newsletter</Link>
+          <Link
+            to="/#join"
+            onClick={e => handleHashLink(e, '/#join')}
+            className="btn-earth"
+          >
+            Join Our Newsletter
+          </Link>
         </div>
 
         <Separator className="my-16 bg-earth-light-green/20" />
 
         <div className="text-center mb-8">
-          <Link to="/" className="text-earth-forest hover:text-earth-green transition-colors duration-300 font-medium">
+          <Link
+            to="/"
+            className="text-earth-forest hover:text-earth-green transition-colors duration-300 font-medium"
+          >
             Return to Home
           </Link>
         </div>
