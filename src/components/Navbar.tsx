@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { Menu, X, TreePine } from 'lucide-react';
 
@@ -17,10 +18,10 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Issues & Solutions', href: '#issues' },
-    { name: 'Tree Calculator', href: '#calculator' },
-    { name: 'Take Action', href: '#action' },
+    { name: 'Home', href: '/' },
+    { name: 'Issues & Solutions', href: '/#issues' },
+    { name: 'Tree Calculator', href: '/#calculator' },
+    { name: 'Take Action', href: '/#action' },
     { name: 'Community', href: '/community' }
   ];
 
@@ -32,31 +33,31 @@ const Navbar = () => {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <a 
-          href="#home" 
+        <Link 
+          to="/" 
           className="flex items-center gap-2 text-earth-forest font-display font-semibold text-xl"
         >
           <TreePine className="h-6 w-6 text-earth-green animate-pulse-gentle" />
           <span className="tracking-tight">LOVE EARTH</span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
+              to={link.href}
               className="text-earth-forest hover:text-earth-green transition-colors duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-earth-green after:transition-all hover:after:w-full"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
-          <a 
-            href="#join" 
+          <Link 
+            to="/#join" 
             className="btn-earth"
           >
             Join Us
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -82,22 +83,22 @@ const Navbar = () => {
       >
         <div className="px-6 py-8 space-y-6 flex flex-col">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
+              to={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
               className="text-earth-forest hover:text-earth-green transition-colors duration-300 text-lg font-medium"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
-          <a 
-            href="#join" 
+          <Link 
+            to="/#join" 
             onClick={() => setIsMobileMenuOpen(false)}
             className="btn-earth self-start"
           >
             Join Us
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
