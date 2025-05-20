@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X, TreePine, LucideTreePine } from 'lucide-react';
+import { Menu, X, TreePine } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,7 +20,8 @@ const Navbar = () => {
     { name: 'Home', href: '#home' },
     { name: 'Issues & Solutions', href: '#issues' },
     { name: 'Tree Calculator', href: '#calculator' },
-    { name: 'Take Action', href: '#action' }
+    { name: 'Take Action', href: '#action' },
+    { name: 'Community', href: '/community' }
   ];
 
   return (
