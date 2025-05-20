@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -110,10 +111,16 @@ const Community = () => {
         <div className="text-center">
           <h3 className="text-2xl font-semibold text-earth-forest mb-4">Want to be notified when our community features launch?</h3>
           <p className="mb-6">Subscribe to our newsletter to stay updated!</p>
-          <a href="#join" className="btn-earth">Join Our Newsletter</a>
+          <Link to="/#join" className="btn-earth">Join Our Newsletter</Link>
         </div>
 
         <Separator className="my-16 bg-earth-light-green/20" />
+
+        <div className="text-center mb-8">
+          <Link to="/" className="text-earth-forest hover:text-earth-green transition-colors duration-300 font-medium">
+            Return to Home
+          </Link>
+        </div>
 
         <div className="text-center text-earth-forest/60">
           <p>Our community features are under development. Check back soon!</p>
