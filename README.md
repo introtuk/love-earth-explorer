@@ -1,69 +1,114 @@
-# Welcome to your Lovable project
+# 🌍 Love Earth Project
 
-## Project info
+**Love Earth** is an eco-conscious web application designed to educate, inspire, and empower individuals to take action for the environment. The platform provides insights into major environmental challenges like deforestation, climate change, water pollution, and more—along with practical, everyday solutions.
 
-**URL**: https://lovable.dev/projects/09bbb533-4271-4580-b5fd-8ffb000ee30c
+Features include:
 
-## How can I edit this code?
+- **Tree Calculator** to estimate how many trees to plant based on your carbon footprint.
+- **Educational content** on pressing environmental issues and their solutions.
+- **Action steps** to make a real-world impact.
+- **Join Us** section to engage with the community and stay informed.
 
-There are several ways of editing your application.
+Built with a clean, responsive UI using React, TypeScript, Tailwind CSS, and shadcn-ui, the project is hosted on Firebase at [loveearth1a.web.app](https://loveearth1a.web.app).
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/09bbb533-4271-4580-b5fd-8ffb000ee30c) and start prompting.
+## 🔗 [Live Website](https://loveearth1a.web.app)
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📦 Tech Stack
 
-**Use your preferred IDE**
+- **Framework:** React (with Vite)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **UI Components:** shadcn-ui
+- **Hosting:** Firebase
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+# 🚀 Run the Project Locally
 
-Follow these steps:
+This guide will walk you through the complete process of setting up and running the Love Earth project on your local machine.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🛠 Prerequisites
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Before you begin, make sure you have the following installed:
 
-# Step 3: Install the necessary dependencies.
-npm i
+- [Node.js](https://nodejs.org/) (Recommended: LTS version)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+- [Git](https://git-scm.com/)
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+## 📥 Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/introtuk/love-earth-explorer.git
+cd love-earth-explorer
+```
+
+## 📦 Step 2: Install Dependencies
+
+Install all the required dependencies for the project:
+
+```bash
+npm install
+```
+
+## ⚙️ Step 3: Configure Environment Variables (if needed)
+
+If the project requires environment variables:
+
+1. Locate the `.env.example` file in the project root
+2. Create a copy and rename it to `.env`
+3. Fill in the required values of database configurations
+
+```bash
+cp .env.example .env
+```
+
+## 🧪 Step 4: Run Development Server
+
+Start the local development server:
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+This will start the Vite development server, typically at `http://localhost:8080`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 👀 Step 5: View the Application
 
-**Use GitHub Codespaces**
+Open your browser and navigate to:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+http://localhost:8080
+```
 
-## What technologies are used for this project?
+You should now see the Love Earth application running locally.
 
-This project is built with .
+## 🏗️ Step 6: Building for Production (Optional)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+If you want to create a production build:
 
-## How can I deploy this project?
+```bash
+npm run build
+```
 
-Simply open [Lovable](https://lovable.dev/projects/09bbb533-4271-4580-b5fd-8ffb000ee30c) and click on Share -> Publish.
+This will generate optimized files in the `dist` directory.
 
-## I want to use a custom domain - is that possible?
+To preview the production build locally:
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+```bash
+npm run preview
+```
+
+## 🔍 Troubleshooting Common Issues
+
+- **Installation errors**: If you encounter errors during dependency installation, try deleting the `node_modules` folder and `package-lock.json` file, then run `npm install` again.
+- **Missing dependencies**: If you see errors about missing dependencies, make sure you're using the recommended Node.js version and run `npm install` again.
+
+## 🧩 Additional Development Information
+
+- **Code formatting**: Run `npm run format` to format code using Prettier
+- **Linting**: Run `npm run lint` to check for code issues
+- **Type checking**: Run `npm run typecheck` to verify TypeScript types
+
+Happy coding! 🌍💚
